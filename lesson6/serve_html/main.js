@@ -3,13 +3,10 @@ const port = 3000,
   httpStatus = require("http-status-codes"),
   fs = require("fs");
 const routeMap = {
-  "/": "views/index.html",
-};
+  "/": "views/index.html",};
 const getViewUrl = (url) => {
-  return `views${url}.html`;
-};
-http
-  .createServer((req, res) => {
+  return `views${url}.html`;};
+http.createServer((req, res) => {
     let viewUrl = getViewUrl(req.url);
     fs.readFile(viewUrl, (error, data) => {
       if (error) {
