@@ -1,21 +1,43 @@
-const httpStatus = require("http-status-codes"),
-  contentTypes = require("./contentTypes"),
-  utils = require("./utils");
-const routes = {
-  GET: {},
-  POST: {},
-};
-exports.handle = (req, res) => {
-  try {
-    routes[req.method][req.url](req, res);
-  } catch (e) {
-    res.writeHead(httpStatus.OK, contentTypes.html);
-    utils.getFile("views/error.html", res);
-  }
-};
-exports.get = (url, action) => {
-  routes["GET"][url] = action;
-};
-exports.post = (url, action) => {
-  routes["POST"][url] = action;
-};
+router.get("/", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.htm);
+  utils.getFile("views/index.html", res);
+});
+router.get("/courses.html", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.html);
+  utils.getFile("views/courses.html", res);
+});
+router.get("/contact.html", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.html);
+  utils.getFile("views/contact.html", res);
+});
+router.post("/", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.html);
+  utils.getFile("views/thanks.html", res);
+});
+router.get("/graph.png", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.png);
+  utils.getFile("public/images/graph.png", res);
+});
+router.get("/people.jpg", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.jpg);
+  utils.getFile("public/images/people.jpg", res);
+});
+router.get("/product.jpg", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.jpg);
+  utils.getFile("public/images/product.jpg", res);
+});
+router.get("/confetti_cuisine.css", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.css);
+  utils.getFile("public/css/confetti_cuisine.css", res);
+});
+router.get("/bootstrap.css", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.css);
+  utils.getFile("public/css/bootstrap.css", res);
+});
+router.get("/confetti_cuisine.js", (req, res) => {
+  res.writeHead(httpStatus.OK, contentTypes.js);
+  utils.getFile("public/js/confetti_cuisine.js", res);
+});
+http.createServer(router.handle).listen(port);
+console.log(`The server is listening on
+➥ port number: ${port}`);
