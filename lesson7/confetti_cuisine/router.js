@@ -39,5 +39,4 @@ router.get("/confetti_cuisine.js", (req, res) => {
   utils.getFile("public/js/confetti_cuisine.js", res);
 });
 http.createServer(router.handle).listen(port);
-console.log(`The server is listening on
-➥ port number: ${port}`);
+console.log(`The server is listening on port number: ${port}`);
