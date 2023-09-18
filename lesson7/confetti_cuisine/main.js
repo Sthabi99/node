@@ -1,5 +1,5 @@
-const port = 3300;
-(http = require("http")),
+const port = 3000;
+http = require("http"),
   (httpStatus = require("http-status-codes")),
   (router = require("./router")),
   (contentTypes = require("./contentTypes")),
