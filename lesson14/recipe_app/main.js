@@ -8,10 +8,9 @@ const express = require("express"),
   mongoose = require("mongoose"),
   Subscriber = require("./models/subscriber");
 
-mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
-  { useNewUrlParser: true }
-);
+mongoose.connect("mongodb://localhost:27017/recipe_db", {
+  useNewUrlParser: true,
+});
 mongoose.set("useCreateIndex", true);
 const db = mongoose.connection;
 
@@ -20,7 +19,7 @@ db.once("open", () => {
 });
 
 var myQuery = Subscriber.findOne({
-  name: "Jon Wexler"
+  name: "Jon Wexler",
 }).where("email", /wexler/);
 
 myQuery.exec((error, data) => {
@@ -34,7 +33,7 @@ app.use(express.static("public"));
 app.use(layouts);
 app.use(
   express.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 app.use(express.json());
