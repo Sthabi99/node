@@ -6,7 +6,7 @@ const express = require("express"),
   homeController = require("./controllers/homeController"),
   layouts = require("express-ejs-layouts"),
   MongoDB = require("mongodb").MongoClient,   //require mongodb
-  dbURL = "mongodb://localhost:27017",
+  dbURL = "mongodb://127.0.0.1:27017/recipe_db",
   dbName = "recipe_db";
 
 MongoDB.connect(
