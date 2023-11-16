@@ -9,7 +9,7 @@ const express = require("express"),
 
 const mongoose = require("mongoose");     //require mongoose
 mongoose.connect(
-  "mongodb://localhost:27017/confetti_cuisine", //set up the database connection
+  "mongodb://127.0.0.1:27017/recipe_db", //set up the database connection
   { useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);
